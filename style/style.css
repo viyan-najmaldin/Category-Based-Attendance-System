@@ -1,0 +1,73 @@
+.yel-col {
+  color: rgb(195, 235, 16);
+}
+.nav-tabs .nav-link.active {
+  border: 0;
+  border-bottom: 4px solid aliceblue !important;
+}
+
+.nav-tabs {
+  border-bottom: 0;
+}
+.nav-tabs .nav-link.active {
+  color: rgb(255, 255, 255) !important;
+  background-color: rgb(1, 128, 85);
+}
+
+.font-ss {
+  font-size: 110%;
+}
+
+.bgg {
+  background-color: rgb(1, 128, 85);
+}
+
+.textgg {
+  color: rgb(1, 128, 85);
+}
+
+.bgy {
+  background-color: rgb(195, 235, 16);
+}
+
+.box {
+  background-color: rgb(108, 182, 157) !important;
+  margin: 5% 30% !important;
+  border-radius: 5% !important;
+}
+
+.form-control {
+  border-radius: 0% !important;
+}
+
+.input-bgg {
+  background-color: #fff !important;
+  border: 0 !important;
+  border-bottom: 2px solid #fff !important;
+  color: black;
+}
+
+.form-control:focus {
+  outline-style: none !important;
+  box-shadow: 1px 1px 5px 1px #79d2a6 !important;
+  border-color: transparent !important;
+  color: black !important;
+}
+
+.cancel-link {
+  text-decoration: none;
+  color: #000;
+}
+
+.cancel-btn {
+  background-color: gray !important;
+}
+
+#btn :hover {
+  color: rgb(1, 128, 85);
+}
+
+.box1 {
+  background-color: rgb(108, 182, 157) !important;
+  margin: 0 3% !important;
+}
