@@ -19,17 +19,10 @@ if (isset($_COOKIE['username'])) {
     $username = $_COOKIE['username'];
  
     $departmet=$_POST['dep'];
-   echo $departmet; 
-    
     
     
    
-
     
-
-        
-        
-     
 
 
 
@@ -98,7 +91,7 @@ if (isset($_COOKIE['username'])) {
 
 
 </div>
-<?php } ?>
+<?php }  ?>
 
 
 
