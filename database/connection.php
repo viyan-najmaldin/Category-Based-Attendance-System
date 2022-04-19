@@ -1,7 +1,7 @@
 <?php
 
 $host= "localhost";
-$dbname= "category_based_attendance_system";
+$dbname= "aa";
 $username = "root";
 $pass ="";
 $db= null;

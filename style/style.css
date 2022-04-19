@@ -1,5 +1,5 @@
 .yel-col {
-  color: rgb(195, 235, 16);
+  color: #ff9966;
 }
 .nav-tabs .nav-link.active {
   border: 0;
@@ -11,7 +11,7 @@
 }
 .nav-tabs .nav-link.active {
   color: rgb(255, 255, 255) !important;
-  background-color: rgb(1, 128, 85);
+  background-color: #0F6466;
 }
 
 .font-ss {
@@ -19,19 +19,19 @@
 }
 
 .bgg {
-  background-color: rgb(1, 128, 85);
+  background-color: #0F6466;
 }
 
 .textgg {
-  color: rgb(1, 128, 85);
+  color: #0F6466;
 }
 
 .bgy {
-  background-color: rgb(195, 235, 16);
+  background-color: #ff9966;
 }
 
 .box {
-  background-color: rgb(108, 182, 157) !important;
+  background-color: #D2E8E3 !important;
   margin: 5% 30% !important;
   border-radius: 5% !important;
 }
@@ -55,7 +55,8 @@
 }
 
 .cancel-link {
-  text-decoration: none;
+  text-decoration: none !important;
+  
   color: #000;
 }
 
@@ -63,11 +64,50 @@
   background-color: gray !important;
 }
 
-#btn :hover {
-  color: rgb(1, 128, 85);
+.btn :hover {
+  color: #0F6466 !important;
 }
 
+
+
 .box1 {
-  background-color: rgb(108, 182, 157) !important;
+  background-color: #D2E8E3 !important;
   margin: 0 3% !important;
+}
+
+.light-blue{
+  background-color: #D2E8E3 !important;
+
+}
+
+
+.dep:hover{
+  background-color:#2C3532 ;
+  color: #D8B08C;
+
+}
+
+.dep{
+  font-size: larger;
+}
+
+.light-text{
+  color: #D2E8E3;
+}
+
+ select {
+  text-transform: none;
+  border: none !important;
+  
+  padding: 2%;
+  color: gray;
+  margin-left: 3%;
+  padding-left: 3%;
+  margin-top: 3%;
+  margin-right: -6px;
+  margin-left: 6px;
+}
+
+.cat.box{
+  padding-bottom: 70% !important;
 }

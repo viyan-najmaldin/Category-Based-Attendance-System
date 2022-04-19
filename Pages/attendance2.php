@@ -16,14 +16,11 @@ $read = $db->prepare("SELECT * FROM user ");
 $read->execute();
 
 $users= $read->fetchAll(PDO::FETCH_OBJ);
-  
-
 
 ?>
 
 <div class=' bgg'>
-
-<div class= 'menu d-flex justify-content-between p-3'>
+        <div class= 'menu d-flex justify-content-between p-3'>
  
 
  <div class ='mx-4 mt-3'>
@@ -71,7 +68,6 @@ $users= $read->fetchAll(PDO::FETCH_OBJ);
 
 
 
-<button onClick='yes()'>yes</button>
 
 
 </div>
@@ -83,9 +79,7 @@ $users= $read->fetchAll(PDO::FETCH_OBJ);
     <script>
   localStorage.clear();
 
-  function yes(){
-    window.location.replace("../index.php")
-  }
+ 
 
     </script>
 </body>

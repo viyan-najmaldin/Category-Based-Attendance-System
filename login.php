@@ -12,6 +12,7 @@
 
       <div class=' bgg'>
 
+      
 <br><br>
       <div class='text-center'>
  <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi yel-col pb-2 bi-calendar2-check" viewBox="0 0 16 16">
@@ -22,17 +23,41 @@
 <h1 class='d-inline text-white'><span class='yel-col'>Category Based</span> Attendance System</h1>
 </div>
 
+<?php
 
-           <form action="" method="post" class=' d-flex p-5 border-0 bg-white rounded box flex-column'>
-                 <input class='input-bgg form-control p-4 m-3' id='inputUser' type="text" placeholder='USERNAME' required
+
+function startsWith ($string, $startString) 
+{ 
+    $len = strlen($startString); 
+    return (substr($string, 0, $len) === $startString); 
+} 
+$url='Pages/departments.php'
+
+?>
+
+           <form action="<?=$url?>" method="post"  class=' d-flex p-5 border-0 bg-white rounded box flex-column'>
+                 <input name="name" class='input-bgg form-control p-4 m-2' id='inputUser' type="text" placeholder='USERNAME' required
                   autofocus>
-                 <input class=' input-bgg  form-control p-4 m-3' id='inputPassword' type="text" placeholder='CARD NUMBER' required
+                 <input name="id" class=' input-bgg  form-control p-4 m-2' id='inputPassword' type="text" placeholder='CARD NUMBER' required
                   autofocus>
-                  <div class='null-input mx-3 text-danger '></div>         
+
+ 
+         
+                  <!-- <select class="select-role" aria-label="Default select example">
+                    <option selected>Select Your Roles</option>
+                   <option value="adm">Admin</option>
+                   <option value="user">Student</option>
+                   <option value="user">Teacher</option>
+                   <option value="user">employee</option>
+                   <option value="user">Others</option>
+                  </select> -->
+
+                  <div class='null-input mt-3 mx-3 text-danger '></div>         
 
                  <div class='d-flex justify-content-center'>
-                 <button  class="cancel-btn btn my-5 m-3  p-2 px-3 rounded-pill"><a class="cancel-link" href="/CBAS">Cancel</a> </button>
-                 <button id='btn' type="submit" onClick='loginn()' id="signinBtn" class="signinBtn bgy btn m-5 my-5  p-2 px-4 rounded-pill">Login</button>
+                     
+                 <button  class="cancel-btn btn my-5 m-3  p-2 px-3 rounded-pill"><a class="cancel-link" href="/CBAS_a">Cancel</a> </button>
+                 <button id='btn' name='submit' type="submit" onClick='loginn()' id="signinBtn" class="signinBtn bgy btn m-5 my-5  p-2 px-4 rounded-pill">Login</button>
 
       </div>
       
@@ -42,8 +67,13 @@
 
   
       </div>
-<?php include('Pages/footer.php') ?>
+
+
+   
+<?php 
+
+include('Pages/footer.php') ?>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-<script src='js/login.js' ></script>
+<!-- <script src='./js/login.js' ></script> -->
 </body>
 </html>

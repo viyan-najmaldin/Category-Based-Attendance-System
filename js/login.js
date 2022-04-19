@@ -30,20 +30,17 @@ function loginn() {
     nullInput.innerHTML = "please fill the inputs";
   } else if (
     document.querySelector("#inputUser").value != "" &&
-    pass.value.startsWith("vi")
+    pass.value.startsWith("emp")
   ) {
     let admin = "admin";
     localStorage.setItem("admin", admin);
-
     let username = document.querySelector("#inputUser");
     localStorage.setItem("username", username);
-    location.reload();
   } else if (
     document.querySelector("#inputUser").value != "" &&
     pass.value != ""
   ) {
     let username = document.querySelector("#inputUser");
     localStorage.setItem("username", username);
-    location.reload();
   }
 }
