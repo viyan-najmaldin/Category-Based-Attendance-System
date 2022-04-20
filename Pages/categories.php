@@ -37,7 +37,7 @@ $departmet=$_SESSION["dep"];
     
     <span class='d-inline p-2'>
             <h3 class='d-inline p-2 yel-col ' >Category Based Attendance System</h3>
-            <div style='margin-left:15%; margin-top:-3%;' class='yel-col'><?php echo $_SESSION["username"];  ?></div>
+            <div style='margin-left:15%; margin-top:-3%;' class='yel-col font-ss'><?php echo $_SESSION["username"];  ?></div>
      </span>
  </div>
 

@@ -17,12 +17,15 @@
 <body class='bgg'>
 <?php 
 require_once '../database/connection.php';
-$username= $_POST['name'];
-$password= $_POST['id'];
+session_start();
+$username=$_SESSION["username"];
+$password=$_SESSION["pass"];
+
 $read = $db->prepare("SELECT *
 FROM user AS aa
 JOIN attendance AS bb ON bb.Card_ID = aa.Card_ID
 JOIN roles AS cc ON cc.Role_ID = aa.Role_ID 
+JOIN leaves AS dd ON dd.Leave_ID = bb.Leave_ID 
 WHERE aa.Full_Name = '$username' && aa.Card_ID= '$password'
 GROUP BY aa.Card_ID");
 $read->execute();
@@ -46,69 +49,108 @@ $users= $read->fetchAll(PDO::FETCH_ASSOC);
  
 
  <div class ='mx-4 mt-3'>
-  <img src="https://raw.githubusercontent.com/Blacksuan19/Attendance-System/master/src/resources/window.png" width="50" height="50" alt="">
- <h3 class='d-inline p-2'><span class='yel-col'>CB</span>AS</h3>
+    <img src="https://raw.githubusercontent.com/Blacksuan19/Attendance-System/master/src/resources/window.png" width="60" height="60" alt="">
+    
+    <span class='d-inline p-2'>
+            <h3 class='d-inline p-2 yel-col ' >Category Based Attendance System</h3>
+            <div style='margin-left:15%; margin-top:-3%;' class='yel-col font-ss'><?php echo $user['Full_Name']; ?></div>
+     </span>
  </div>
 
- <form action="../index.php" method="post">
+   <form action="../index.php">
         <button type="submit" class="bgy btn px-5 mx-4 mt-3 py-2 font-ss  rounded-pill">Log Out</button>
-        </form>
+    </form>
 
 </div>
 
 
 
-           <div class=' d-flex p-5 border-0 m-2 rounded box1 flex-column'>
+           <div class='d-flex p-5 border-0 m-2 rounded box1 flex-column' >
            
            <div>
-                  <div class="row">
-                        <div class="col">Full Name : <?php echo $user['Full_Name']; ?></div>
-                        <div class="col">Address : <?php echo $user['Address']; ?></div>
-                        <div class="col">Date :<?php echo $user['Time']; ?></div>
+                  <div class="row p-2 font-ss">
+                        <div class="col"><span class='bold-text'>Full Name :</span>  <?php echo $user['Full_Name']; ?></div>
+                        <div class="col"><span class='bold-text'>Address :</span> <?php echo $user['Address']; ?></div>
+                        <div class="col"><span class='bold-text'>Date :</span> <?php echo date("Y/m/d") . "<br>"?></div>
                   </div>
 
-                  <div class="row">
-                        <div class="col">Card ID :<?php echo $user['Card_ID']; ?></div>
-                        <div class="col">Role :<?php echo $user['Role_Name'];  ?></div>
-                        <div class="col">Blood Group : <?php echo $user['Blood_Group'];   }?></div>
+                  <div class="row p-2 font-ss">
+                        <div class="col"><span class='bold-text'>Card ID :</span> <?php echo $user['Card_ID']; ?></div>
+                        <div class="col"><span class='bold-text'>Role :</span><?php echo $user['Role_Name'];  ?></div>
+                        <div class="col"><span class='bold-text'>Blood Group :</span> <?php echo $user['Blood_Group']; }  ?></div>
                   </div>
 
            </div>
-<br><br>
-
+<br>
 
 
            <table class="table">
-               <thead>
-                
                
-               
-               
-               
-               
-               
-                 <tr>
+                 <tr class='t-shape'>
                     <th scope="col">Date</th>
                     <th scope="col">Time In</th>
                     <th scope="col">Time Out</th>
+                    <th scope="col">No hours</th>
+                    
+
                     
                    
                  </tr>
-               </thead>
+               
                         
-               <tbody>
+               
 
+               <?php    
 
+               
+$read1 = $db->prepare("SELECT *
+FROM user AS aa
+JOIN attendance AS bb ON bb.Card_ID = aa.Card_ID 
+JOIN leaves AS dd ON dd.Leave_ID = bb.Leave_ID 
+WHERE aa.Full_Name = '$username' 
+GROUP BY dd.Leave_ID");
+$read1->execute();
 
+$users1= $read1->fetchAll(PDO::FETCH_ASSOC);
+  
+foreach($users1 as $us  ){
 
-               <tr>
-                    <td scope="col">User ID</td>
-                    <td scope="col">User ID</td>
-                    <td scope="col">User ID</td>
+                ?>    
+             
+                <tr class='data-row'>
+               
+                    <td scope="col"><?php echo $us['Time']; ?></td>
+                    <td scope="col"><?php echo $us['Time_In']; ?></td>
+                    <td scope="col"><?php echo $us['Time_Out']; ?></td>
+                    <td scope="col"><?php 
                     
+                    $t1 =new DateTime($us['Time_In']);
+
+                    $t2 = new DateTime($us['Time_Out']);
+                    
+                    $no_of_hours;
+                    
+                    $interval = $t1->diff($t2);
+                    $diffInSeconds = $interval->s;
+                    $diffInMinutes = $interval->s;
+                    $diffInHours   = $interval->h;
+                    
+                    if ( $t1 <= new DateTime("15:00:00")) {
+                    
+                        $no_of_hours = print( $diffInHours .' hours');
+                    } else {
+                      echo  $no_of_hours = 0;
+                    }
+
+         
+// ?>  
+                     
+                    
+                     </td>
 
                </tr>
-
+               <?php }
+               ?>
                  
 
                 
@@ -119,10 +161,30 @@ $users= $read->fetchAll(PDO::FETCH_ASSOC);
 
 
 
+               
 
-               </tbody>
+           </table>
+           <hr>   
+           <div>No of days:
+            <?php 
+                           
+// $read2 = $db->prepare("SELECT COUNT(Date)
+// FROM attendance AS bb
+// JOIN user AS aa ON bb.Card_ID = aa.Card_ID 
+// JOIN leaves AS dd ON dd.Leave_ID = bb.Leave_ID 
+// WHERE aa.Full_Name = '$username' 
+// GROUP BY dd.Leave_ID");
+// $read2->execute();
 
-           </table>   
+// $users2= $read1->fetchAll(PDO::FETCH_ASSOC);
+  
+// foreach($users2 as $uss  ){
+
+  // print_r($uss);  }
+            
+            ?>
+
+           </div>
 
       
           </div>
@@ -137,7 +199,6 @@ $users= $read->fetchAll(PDO::FETCH_ASSOC);
 
 
 </div>
-
 
 
 

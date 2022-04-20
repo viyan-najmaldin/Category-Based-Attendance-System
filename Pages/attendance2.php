@@ -7,83 +7,147 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.1/css/bootstrap.min.css" integrity="sha512-T584yQ/tdRR5QwOpfvDfVQUidzfgc2339Lc8uBDtcp/wYu80d7jwBgAxbyMh0a9YM9F8N3tdErpFI8iaGx6x5g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../style/style.css" />
 
+    
+
+
+
+
     <title>Document</title>
 </head>
 <body class='bgg'>
 <?php 
-
- 
-
-
 require_once '../database/connection.php';
-$read = $db->prepare("SELECT * FROM user ");
+session_start();
+$username=$_SESSION['username'];
+$password=$_SESSION["pass"];
+
+$xx=$_SESSION["xx"];
+echo $xx;
+
+$read = $db->prepare("SELECT *
+FROM user AS aa
+JOIN attendance AS bb ON bb.Card_ID = aa.Card_ID
+JOIN roles AS cc ON cc.Role_ID = aa.Role_ID 
+JOIN leaves AS dd ON dd.Leave_ID = bb.Leave_ID 
+WHERE  aa.Card_ID='$xx'
+GROUP BY aa.Card_ID");
 $read->execute();
 
-$users= $read->fetchAll(PDO::FETCH_OBJ);
+$users= $read->fetchAll(PDO::FETCH_ASSOC);
+  
+
+ foreach($users as $user  ){
+
+
+
+
+
+
 
 ?>
 
 <div class=' bgg'>
-        <div class= 'menu d-flex justify-content-between p-3'>
+
+<div class= 'menu d-flex justify-content-between p-3'>
  
 
  <div class ='mx-4 mt-3'>
-  <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi yel-col pb-2 bi-calendar2-check" viewBox="0 0 16 16">
-   <path d="M10.854 8.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
-   <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z"/>
-   <path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z"/>
- </svg>
- <h3 class='d-inline text-white p-2'><span class='yel-col'>CB</span>AS</h3>
+    <img src="https://raw.githubusercontent.com/Blacksuan19/Attendance-System/master/src/resources/window.png" width="60" height="60" alt="">
+    
+    <span class='d-inline p-2'>
+            <h3 class='d-inline p-2 yel-col ' >Category Based Attendance System</h3>
+            <div style='margin-left:15%; margin-top:-3%;' class='yel-col font-ss'><?php echo $username; ?></div>
+     </span>
  </div>
 
- <form action="../index.php" method="post">
+   <form action="../index.php">
         <button type="submit" class="bgy btn px-5 mx-4 mt-3 py-2 font-ss  rounded-pill">Log Out</button>
-        </form>
+    </form>
 
 </div>
 
 
 
-           <div class=' d-flex p-5 border-0 m-2 rounded box1 flex-column'>
+           <div class='d-flex p-5 border-0 m-2 rounded box1 flex-column' >
+           
+           <div>
+                  <div class="row p-2 font-ss">
+                        <div class="col"><span class='bold-text'>Full Name :</span>  <?php echo $user['Full_Name']; ?></div>
+                        <div class="col"><span class='bold-text'>Address :</span> <?php echo $user['Address']; ?></div>
+                        <div class="col"><span class='bold-text'>Date :</span> <?php echo date("Y/m/d") . "<br>"?></div>
+                  </div>
+
+                  <div class="row p-2 font-ss">
+                        <div class="col"><span class='bold-text'>Card ID :</span> <?php echo $user['Card_ID']; ?></div>
+                        <div class="col"><span class='bold-text'>Role :</span><?php echo $user['Role_Name'];  ?></div>
+                        <div class="col"><span class='bold-text'>Blood Group :</span> <?php echo $user['Blood_Group']; }  ?></div>
+                  </div>
+
+           </div>
+<br>
+
+
+           <table class="table">
+               
+                 <tr class='t-shape'>
+                    <th scope="col">Date</th>
+                    <th scope="col">Time In</th>
+                    <th scope="col">Time Out</th>
+                    <th scope="col">No hours</th>
+                    
+
+                    
+                   
+                 </tr>
+               
+                        
+               
+
+               <?php    
+
+               
+$read1 = $db->prepare("SELECT *
+FROM user AS aa
+JOIN attendance AS bb ON bb.Card_ID = aa.Card_ID 
+JOIN leaves AS dd ON dd.Leave_ID = bb.Leave_ID 
+WHERE aa.Full_Name = '$xx' 
+GROUP BY dd.Leave_ID");
+$read1->execute();
+
+$users1= $read1->fetchAll(PDO::FETCH_ASSOC);
+  
+foreach($users1 as $us  ){
+
+                ?>    
              
-                <div class=''><span class='yel-col'>Full Name :  </span> <?php  ?> </div>
+                <tr class='data-row'>
+               
+                    <td scope="col"><?php echo $us['Time']; ?></td>
+                    <td scope="col"><?php echo $us['Time_In']; ?></td>
+                    <td scope="col"><?php echo $us['Time_Out']; ?></td>
+                    <td scope="col"><?php echo $us['No_of_Hour']; ?></td>
 
-<?php
-$password='adm124158';
-if(substr($password,0,3) =='adm'){   
-  echo 'yesss';  }
-
-   else  echo 'no';    ?>
-
-
-
-<form action="../index.php" method="post">
-
-<table class='table'>
-       <tr>
-         <th>aa</th>
-         <th>bb</th>
-         <th>cc </th>
-       </tr>
-
-       <tr>
-          <td>1</td>
-          <td>2</td>
-          <td><button type="submit">3</button></td>
-
-       </tr>
-
-</table>
-
-</form>
-
-
-             
+               </tr>
+               <?php }
+               ?>
                  
 
-      </div>
+                
+                 
+
+
+
+
+
+
+               
+
+           </table>
+           <hr>   
+           <div>No of days:</div>
+
       
-</div>
+          </div>
   
            <br><br>
 
@@ -98,13 +162,18 @@ if(substr($password,0,3) =='adm'){
 
 
 
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+   <script src="../js/login.js"></script> 
     <script>
-  localStorage.clear();
+  
+  console.log(localStorage.getItem("username").value)
+  //localStorage.clear();
 
  
 
     </script>
 </body>
 </html>
+
+<?php
+?>

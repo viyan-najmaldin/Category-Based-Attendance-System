@@ -43,7 +43,7 @@ $users= $read->fetchAll(PDO::FETCH_ASSOC);
     <img src="https://raw.githubusercontent.com/Blacksuan19/Attendance-System/master/src/resources/window.png" width="60" height="60" alt="">
     
     <span class='d-inline p-2'>
-            <h3 class='d-inline p-2 yel-col ' >Category Based Attendance System</h3>
+            <h3 class='d-inline p-2 yel-col font-ss' >Category Based Attendance System</h3>
             <div style='margin-left:15%; margin-top:-3%;' class='yel-col'><?php echo $user['Full_Name'];} ?></div>
      </span>
  </div>

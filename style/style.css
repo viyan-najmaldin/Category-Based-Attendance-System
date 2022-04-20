@@ -17,6 +17,11 @@
 .font-ss {
   font-size: 110%;
 }
+.bold-text{
+  color: #0F6466;
+  font-weight: bold;
+  
+}
 
 .bgg {
   background-color: #0F6466;

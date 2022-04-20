@@ -99,7 +99,7 @@ include('Pages/footer.php') ?>
                   <script>location.replace("./Pages/departments.php");  </script>
          <?php 
        }   else { ?>
-          <script>location.replace("./Pages/attendance2.php");  </script>
+          <script>location.replace("./Pages/attendance.php");  </script>
           <?php 
             }  } 
           ?>
