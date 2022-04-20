@@ -111,3 +111,29 @@
 .cat.box{
   padding-bottom: 70% !important;
 }
+
+.t-shape{
+border-top: 2px #0F6466 solid;
+border-bottom: 2px #0F6466 solid;
+
+font-size: larger !important;
+}
+
+.data-row{
+border-top: 1px #0F6466 solid !important;
+}
+
+
+.data-row:hover{
+  color: #d37522 !important;
+}
+
+td button{
+  border: 0 !important;
+  background: none;
+}
+
+td button :hover{
+  color: #d37522 !important;
+
+}

@@ -11,6 +11,10 @@
 </head>
 <body class='bgg'>
 <?php 
+
+ 
+
+
 require_once '../database/connection.php';
 $read = $db->prepare("SELECT * FROM user ");
 $read->execute();
@@ -42,16 +46,31 @@ $users= $read->fetchAll(PDO::FETCH_OBJ);
 
            <div class=' d-flex p-5 border-0 m-2 rounded box1 flex-column'>
              
-                <div class=''><span class='yel-col'>Full Name : </span> <?php  ?> </div>
+                <div class=''><span class='yel-col'>Full Name :  </span> <?php  ?> </div>
 
 
 
 
-                  <p>vbcbc</p>
-                 <p>vxcvxxb</p>
-                 <p>cvgxfbf</p>
-                 <p>vxcvxxb</p>
-                 <p>cvgxfbf</p>
+
+<form action="../index.php" method="post">
+
+<table class='table'>
+       <tr>
+         <th>aa</th>
+         <th>bb</th>
+         <th>cc </th>
+       </tr>
+
+       <tr>
+          <td>1</td>
+          <td>2</td>
+          <td><button type="submit">3</button></td>
+
+       </tr>
+
+</table>
+
+</form>
 
 
              

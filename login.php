@@ -35,14 +35,12 @@ $url='Pages/departments.php'
 
 ?>
 
-           <form action="<?=$url?>" method="post"  class=' d-flex p-5 border-0 bg-white rounded box flex-column'>
+           <form action="" method="post"  class=' d-flex p-5 border-0 bg-white rounded box flex-column'>
                  <input name="name" class='input-bgg form-control p-4 m-2' id='inputUser' type="text" placeholder='USERNAME' required
                   autofocus>
                  <input name="id" class=' input-bgg  form-control p-4 m-2' id='inputPassword' type="text" placeholder='CARD NUMBER' required
                   autofocus>
 
- 
-         
                   <!-- <select class="select-role" aria-label="Default select example">
                     <option selected>Select Your Roles</option>
                    <option value="adm">Admin</option>
@@ -51,14 +49,14 @@ $url='Pages/departments.php'
                    <option value="user">employee</option>
                    <option value="user">Others</option>
                   </select> -->
-
+         
                   <div class='null-input mt-3 mx-3 text-danger '></div>         
 
                  <div class='d-flex justify-content-center'>
                      
                  <button  class="cancel-btn btn my-5 m-3  p-2 px-3 rounded-pill"><a class="cancel-link" href="/CBAS_a">Cancel</a> </button>
                  <button id='btn' name='submit' type="submit" onClick='loginn()' id="signinBtn" class="signinBtn bgy btn m-5 my-5  p-2 px-4 rounded-pill">Login</button>
-
+                  
       </div>
       
            </form>
@@ -72,8 +70,24 @@ $url='Pages/departments.php'
    
 <?php 
 
+
 include('Pages/footer.php') ?>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <!-- <script src='./js/login.js' ></script> -->
 </body>
 </html>
+
+<?php  
+
+session_start();
+
+$username= $_POST['name'];
+$_SESSION["username"]=$username;
+
+$password= $_POST['id'];
+$_SESSION["pass"]=$password;
+
+
+
+
+?>

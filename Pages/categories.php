@@ -12,25 +12,17 @@
 <body class='bgg'>
 
 <?php 
+session_start();
+require_once '../database/connection.php';
 
 
-
-if (isset($_COOKIE['username'])) {
-    $username = $_COOKIE['username'];
- 
-    $departmet=$_POST['dep'];
-    
-    
+// if (isset($_COOKIE['username'])) {
+//     $username = $_COOKIE['username'];
    
-    
-
-
-
-    
+$departmet=$_SESSION["dep"];
 
 ?>
    
-
 
 
 
@@ -45,7 +37,7 @@ if (isset($_COOKIE['username'])) {
     
     <span class='d-inline p-2'>
             <h3 class='d-inline p-2 yel-col ' >Category Based Attendance System</h3>
-            <div style='margin-left:15%; margin-top:-3%;' class='yel-col'><?php echo $username; ?></div>
+            <div style='margin-left:15%; margin-top:-3%;' class='yel-col'><?php echo $_SESSION["username"];  ?></div>
      </span>
  </div>
 
@@ -59,7 +51,7 @@ if (isset($_COOKIE['username'])) {
 
            <div class=' d-flex p-5 border-0 m-2 rounded box1 cat-box flex-column'>
              
-              <h2 class="text-center ">DEPARTMENTS</h2> <br><br>
+              <h2 class="text-center ">Departments <?php echo $_SESSION["dep"]; ?></h2> <br><br>
     
               <div class="text-center mb-5 ">
              
@@ -68,9 +60,9 @@ if (isset($_COOKIE['username'])) {
       
               <div class="row mb-4">
         
-                <button type="submit" class="col dep bgg light-text btn px-5 mx-4 mt-3 py-3 font-ss  rounded-pill" name='student' >STUDENTS </button>
-                <button type="submit"class="col dep  bgg light-text btn px-5 mx-4 mt-3 py-3 font-ss  rounded-pill" name='teacher'>TEACHERS </button>
-                <button type="submit"class="col dep  bgg light-text btn px-5 mx-4 mt-3 py-3 font-ss  rounded-pill" name='employee'>STAFF </button>    
+                <button type="submit" class="col dep bgg light-text btn px-5 mx-4 mt-3 py-3 font-ss  rounded-pill"  name='role' value='student' >STUDENTS </button>
+                <button type="submit"class="col dep  bgg light-text btn px-5 mx-4 mt-3 py-3 font-ss  rounded-pill" name='role' value='teacher'>TEACHERS </button>
+                <button type="submit"class="col dep  bgg light-text btn px-5 mx-4 mt-3 py-3 font-ss  rounded-pill" name='role' value='employee'>STAFF </button>    
               </div>
 
        </form>
@@ -83,7 +75,6 @@ if (isset($_COOKIE['username'])) {
   
            <br><br><br>
 
-  
       </div>
 
 
@@ -91,13 +82,15 @@ if (isset($_COOKIE['username'])) {
 
 
 </div>
-<?php }  ?>
-
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script>
   localStorage.clear();
+
+
+  
+
 </script>
 
 

@@ -11,12 +11,12 @@
 </head>
 <body class='bgg'>
 <?php 
-
-$username= $_POST['name'];
+session_start();
 
 require_once '../database/connection.php';
-$username= $_POST['name'];
-$password= $_POST['id'];
+$username= $_SESSION["username"];
+$password= $_SESSION["pass"];
+
 $read = $db->prepare("SELECT *
 FROM user AS aa
 JOIN attendance AS bb ON bb.Card_ID = aa.Card_ID
@@ -29,11 +29,8 @@ $users= $read->fetchAll(PDO::FETCH_ASSOC);
   
 
  foreach($users as $user  ){
-    setcookie("username", $username, time()+5);
+    // setcookie("username", $username, time()+5);
     
-
-
-
 
 ?>
 
@@ -61,11 +58,11 @@ $users= $read->fetchAll(PDO::FETCH_ASSOC);
 
            <div class=' d-flex p-5 border-0 m-2 rounded box1 flex-column'>
              
-              <h2 class="text-center ">DEPARTMENTS</h2> <br><br>
+              <h2 class="text-center ">DEPARTMENTS  </h2> <br><br>
     
               <div class="text-center mb-5 ">
              
-      <form action="categories.php" method="post">
+      <form action="" method="post">
                        
       
       <div class="row mb-4">
@@ -97,7 +94,7 @@ $users= $read->fetchAll(PDO::FETCH_ASSOC);
 </div>
   
            <br><br>
-
+           
   
       </div>
 
@@ -119,3 +116,10 @@ $users= $read->fetchAll(PDO::FETCH_ASSOC);
     </script>
 </body>
 </html>
+
+<?php  
+session_start();
+
+$department= $_POST['dep'];
+$_SESSION["dep"]=$department;
+    ?>
