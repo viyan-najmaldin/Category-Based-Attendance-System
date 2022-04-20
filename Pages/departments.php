@@ -44,7 +44,7 @@ $users= $read->fetchAll(PDO::FETCH_ASSOC);
     
     <span class='d-inline p-2'>
             <h3 class='d-inline p-2 yel-col font-ss' >Category Based Attendance System</h3>
-            <div style='margin-left:15%; margin-top:-3%;' class='yel-col'><?php echo $user['Full_Name'];} ?></div>
+            <div style='margin-left:22%; margin-top:-3%;' class='yel-col  font-ss'><?php echo $user['Full_Name'];} ?></div>
      </span>
  </div>
 
@@ -83,7 +83,7 @@ $users= $read->fetchAll(PDO::FETCH_ASSOC);
 
               <button type="submit" class="col dep bgg light-text btn px-5 mx-4 mt-3 py-3 font-ss  rounded-pill"name='dep'  value='geomatics'>GEOMATICS</button>
                 <button type="submit"class="col dep  bgg light-text btn px-5 mx-4 mt-3 py-3 font-ss  rounded-pill"name='dep'   value='petrochemica'>PETROCHEMICAL</button>
-                <button type="submit"class="col dep  bgg light-text btn px-5 mx-4 mt-3 py-3 font-ss  rounded-pill"name='dep'   value='others'>OTHERS </button>
+                <button type="submit"class="col dep  bgg light-text btn px-5 mx-4 mt-3 py-3 font-ss  rounded-pill" >OTHERS </button>
 
               </div>
        </form>

@@ -17,6 +17,11 @@
 .font-ss {
   font-size: 110%;
 }
+
+.searchh{
+  margin-left: 50% !important;
+}
+
 .bold-text{
   color: #0F6466;
   font-weight: bold;
@@ -156,4 +161,10 @@ td button :hover{
 
 .back-i :hover{
   color:#2C3532;
+}
+
+.ser{
+  display: grid;
+  align-self: end !important;
+
 }

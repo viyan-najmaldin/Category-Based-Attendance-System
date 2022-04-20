@@ -22,7 +22,6 @@ $username=$_SESSION['username'];
 $password=$_SESSION["pass"];
 
 $xx=$_SESSION["xx"];
-echo $xx;
 
 $read = $db->prepare("SELECT *
 FROM user AS aa
@@ -144,10 +143,27 @@ foreach($users1 as $us  ){
 
            </table>
            <hr>   
-           <div>No of days:</div>
+           <div ><span class='font-ss bold-text'>No of days : </span> 
+           
+           <span class='font-ss'>
+           <?php 
+          
+ $read2 = $db->prepare("SELECT COUNT(*)
+FROM attendance AS bb
+JOIN user AS aa ON bb.Card_ID = aa.Card_ID 
+ WHERE aa.Full_Name = '$username' 
+ GROUP BY aa.Card_ID");
+ $read2->execute();
 
-      
-          </div>
+ $users2= $read2->fetchAll(PDO::FETCH_ASSOC);
+  
+ foreach($users2 as $uss  ){
+
+   echo($uss['COUNT(*)']);  }
+            
+            ?>
+</span>
+           </div>
   
            <br><br>
 

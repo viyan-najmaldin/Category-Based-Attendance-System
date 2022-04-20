@@ -13,27 +13,21 @@
 <?php 
 session_start();
 
-$role=$_SESSION["role"];
+$search = $_POST['search'];
 
-// setcookie("role", $role, time()+5);
+
+$role=$_SESSION["role"];
 $departmet=$_SESSION["dep"];
 $username=$_SESSION["username"];
 
-// if (isset($_COOKIE['username'])) {
-//     $username = $_COOKIE['username'];
-    
-//     if (isset($_COOKIE['dept'])) {
-//     $departmet = $_COOKIE['dept'];
-   
-  
 
 require_once '../database/connection.php';
 $read = $db->prepare("SELECT * FROM user 
 JOIN department ON department.Dept_ID=user.Dept_ID
 JOIN roles ON roles.Role_ID = user.role_ID 
-WHERE department.Name='$departmet' && roles.Role_Name='$role'
+WHERE department.Name='$departmet' && roles.Role_Name='$role' && user.Full_Name like '%$search%'
 GROUP BY user.Card_ID
-ORDER BY Full_Name ASC");
+");
     $read->execute();
 
 $users= $read->fetchAll(PDO::FETCH_ASSOC);
@@ -74,17 +68,6 @@ $users= $read->fetchAll(PDO::FETCH_ASSOC);
 
 
            <div class=' d-flex p-5 border-0 m-2 rounded box1 flex-column'>
-<div class='ser'>
-           <form action="search_User.php" method="post"  class='input-group'>
-		        <input
-			type="text"
-			placeholder="Enter your search"
-			name="search"
-            class='searchh  rounded'
->
-		       <button type="submit" name="submit" class='btn btn-outline-primary'>Search</button>
-	</form></div>
-
 
              
              <h2 class="text-center ">department <?php echo $_SESSION["dep"]; ?> ~ <?php echo $_SESSION["role"]; ?>s</h2> <br><br>
@@ -142,7 +125,7 @@ $users= $read->fetchAll(PDO::FETCH_ASSOC);
 
 
 <script>function back(){
-        location.replace("./categories.php");
+        location.replace("./list.php");
     }
     </script>
 

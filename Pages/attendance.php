@@ -165,25 +165,26 @@ foreach($users1 as $us  ){
 
            </table>
            <hr>   
-           <div>No of days:
-            <?php 
-                           
-// $read2 = $db->prepare("SELECT COUNT(Date)
-// FROM attendance AS bb
-// JOIN user AS aa ON bb.Card_ID = aa.Card_ID 
-// JOIN leaves AS dd ON dd.Leave_ID = bb.Leave_ID 
-// WHERE aa.Full_Name = '$username' 
-// GROUP BY dd.Leave_ID");
-// $read2->execute();
+           <div ><span class='font-ss bold-text'>No of days : </span> 
+           
+           <span class='font-ss'>
+           <?php 
+          
+ $read2 = $db->prepare("SELECT COUNT(*)
+FROM attendance AS bb
+JOIN user AS aa ON bb.Card_ID = aa.Card_ID 
+ WHERE aa.Full_Name = '$username' 
+ GROUP BY aa.Card_ID");
+ $read2->execute();
 
-// $users2= $read1->fetchAll(PDO::FETCH_ASSOC);
+ $users2= $read2->fetchAll(PDO::FETCH_ASSOC);
   
-// foreach($users2 as $uss  ){
+ foreach($users2 as $uss  ){
 
-  // print_r($uss);  }
+   echo($uss['COUNT(*)']);  }
             
             ?>
-
+</span>
            </div>
 
       
