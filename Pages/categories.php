@@ -55,7 +55,7 @@ $departmet=$_SESSION["dep"];
     
               <div class="text-center mb-5 ">
              
-      <form action="list.php" method='post'>
+              <form method="post">
                        
       
               <div class="row mb-4">
@@ -69,11 +69,18 @@ $departmet=$_SESSION["dep"];
          
     </div>       
           
+<br><br>
 
+           
+               <button class='back' onclick="back()"> 
+                      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi back-i bi-arrow-left-circle" viewBox="0 0 16 16">
+                              <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
+                      </svg>
+                   </button>
       
 </div>
   
-           <br><br><br>
+           
 
       </div>
 
@@ -83,16 +90,33 @@ $departmet=$_SESSION["dep"];
 
 </div>
 
-
+<script>function back(){
+        location.replace("./departments.php");
+    }
+    </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script>
   localStorage.clear();
-
-
-  
 
 </script>
 
 
 </body>
 </html>
+
+<?php 
+
+
+
+         if(array_key_exists('role', $_POST)) {
+          $role= $_POST['role'];
+          $_SESSION["role"]=$role;          
+          goo();
+          }
+
+
+          function goo(){
+            header("location: ./list.php");
+          }
+
+?>

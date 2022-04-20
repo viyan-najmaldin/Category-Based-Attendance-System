@@ -79,15 +79,32 @@ include('Pages/footer.php') ?>
 
 <?php  
 
-session_start();
-
-$username= $_POST['name'];
-$_SESSION["username"]=$username;
-
-$password= $_POST['id'];
-$_SESSION["pass"]=$password;
-
-
-
 
 ?>
+
+
+<?php 
+   session_start();
+       if(array_key_exists('id', $_POST)) {
+            $username= $_POST['name'];
+            $_SESSION["username"]=$username;
+            $password= $_POST['id'];
+            $_SESSION["pass"]=$password;
+    checkUser();
+          }
+
+          function checkUser(){
+         
+         if(substr($_SESSION["pass"],0,3) =='adm') { ?>
+                  <script>location.replace("./Pages/departments.php");  </script>
+         <?php 
+       }   else { ?>
+          <script>location.replace("./Pages/attendance2.php");  </script>
+          <?php 
+            }  } 
+          ?>
+         
+         
+         
+     
+

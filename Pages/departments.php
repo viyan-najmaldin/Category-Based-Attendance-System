@@ -62,7 +62,7 @@ $users= $read->fetchAll(PDO::FETCH_ASSOC);
     
               <div class="text-center mb-5 ">
              
-      <form action="" method="post">
+      <form method="post">
                        
       
       <div class="row mb-4">
@@ -89,17 +89,11 @@ $users= $read->fetchAll(PDO::FETCH_ASSOC);
        </form>
           </div>       
           
-
       
-</div>
+                        </div>
   
-           <br><br>
-           
-  
+           <br><br>   
       </div>
-
-
-
 
 
 </div>
@@ -111,15 +105,23 @@ $users= $read->fetchAll(PDO::FETCH_ASSOC);
     <script>
   localStorage.clear();
 
- 
-
     </script>
 </body>
 </html>
 
 <?php  
-session_start();
 
-$department= $_POST['dep'];
-$_SESSION["dep"]=$department;
+
+
+         if(array_key_exists('dep', $_POST)) {
+          $department= $_POST['dep'];
+$_SESSION["dep"]=$department; 
+    goo();
+          }
+
+
+          function goo(){
+            header("location: ./categories.php");
+          }
+
     ?>

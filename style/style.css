@@ -137,3 +137,18 @@ td button :hover{
   color: #d37522 !important;
 
 }
+
+.back{
+  align-self: end;
+  border: 0 ;
+  background: none;
+  
+}
+
+.back-i{
+  color: #0F6466;
+}
+
+.back-i :hover{
+  color:#2C3532;
+}

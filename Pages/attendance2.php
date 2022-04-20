@@ -48,7 +48,12 @@ $users= $read->fetchAll(PDO::FETCH_OBJ);
              
                 <div class=''><span class='yel-col'>Full Name :  </span> <?php  ?> </div>
 
+<?php
+$password='adm124158';
+if(substr($password,0,3) =='adm'){   
+  echo 'yesss';  }
 
+   else  echo 'no';    ?>
 
 
 
