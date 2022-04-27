@@ -36,7 +36,7 @@ $users= $read->fetchAll(PDO::FETCH_ASSOC);
 
 <div class=' bgg'>
 
-<div class= 'menu d-flex justify-content-between'>
+<div class= 'menu d-flex justify-content-between '>
  
 
  <div class ='mx-4 mt-3'>
@@ -58,7 +58,8 @@ $users= $read->fetchAll(PDO::FETCH_ASSOC);
 
            <div class=' d-flex p-5 border-0 m-2 rounded box1 flex-column'>
              
-              <h2 class="text-center ">DEPARTMENTS  </h2> <br><br>
+           <h2 class="text-center ">Departments <?php echo $_SESSION["dep"]; ?> - Adding User</h2> <br><br>
+              
     
               <div class="text-center mb-5 ">
              
@@ -66,33 +67,47 @@ $users= $read->fetchAll(PDO::FETCH_ASSOC);
                        
       
       <div class="row mb-4">
-      
-                <button type="submit" class="col dep bgg light-text btn px-5 mx-4 mt-3 py-3 font-ss  rounded-pill" name="dep"  value='software' >SOFTWARE </button>
-                <button type="submit"class="col dep  bgg light-text btn px-5 mx-4 mt-3 py-3 font-ss  rounded-pill" name='dep' value='architecture'>ARCHITECTURE </button>
-                <button type="submit"class="col dep  bgg light-text btn px-5 mx-4 mt-3 py-3 font-ss  rounded-pill" name='dep' value='civil'>CIVIL </button>    
+      <input name="card" class='col input-bgg form-control p-4 m-2' id='inputUser' type="text" placeholder='CARD NUMBER' required
+                  autofocus>
+                  <input name="fullname" class='col input-bgg form-control p-4 m-2' id='inputUser' type="text" placeholder='FULL NAME' required
+                  autofocus>
         </div>
 
          <div class="row mb-4">
-
-              <button type="submit" class="col dep bgg light-text btn px-5 mx-4 mt-3 py-3 font-ss  rounded-pill" name='dep'  value='electrical' >ELECTRICAL </button>
-                <button type="submit"class="col dep  bgg light-text btn px-5 mx-4 mt-3 py-3 font-ss  rounded-pill"name='dep'  value='dams&water'>DAM & WATER </button>
-                <button type="submit"class="col dep  bgg light-text btn px-5 mx-4 mt-3 py-3 font-ss  rounded-pill"name='dep'  value='mechanics'>MECHANICS</button>
-
+         <input name="roles" class='col input-bgg form-control p-4 m-2' id='inputUser' type="text" placeholder='ROLE' required
+                  autofocus>
+             <input name="dept" class='col input-bgg form-control p-4 m-2' id='inputUser' type="text" placeholder='DEPARTMENT' required
+                  autofocus>     
               </div>
               <div class="row mb-4">
 
-              <button type="submit" class="col dep bgg light-text btn px-5 mx-4 mt-3 py-3 font-ss  rounded-pill"name='dep'  value='geomatics'>GEOMATICS</button>
-                <button type="submit"class="col dep  bgg light-text btn px-5 mx-4 mt-3 py-3 font-ss  rounded-pill"name='dep'   value='petrochemica'>PETROCHEMICAL</button>
-                <button type="submit"class="col dep  bgg light-text btn px-5 mx-4 mt-3 py-3 font-ss  rounded-pill" >OTHERS </button>
-
+              <input name="bgroup" class=' col input-bgg form-control p-4 m-2' id='inputUser' type="text" placeholder='BLOOD GROUP' required
+                  autofocus>
+                  
+              <input name="address" class=' col input-bgg form-control p-4 m-2' id='inputUser' type="text" placeholder='ADDRESS' required
+                  autofocus>
               </div>
+              <div class="row mb-4">
+
+<input name="DOBB" type='date' class=' col input-bgg form-control p-4 m-2' id='inputUser' type="text" placeholder='DATE OF BIRTHDAY' required
+    autofocus>
+  <p class='col'></p>
+</div>
+</div>
        </form>
-          </div>       
+       
+      <button class='back' onclick="back()"> 
+                      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi back-i bi-arrow-left-circle" viewBox="0 0 16 16">
+                              <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
+                      </svg>
+                   </button>    </div>       
           
       
                         </div>
   
-           <br><br>   
+           <br><br> 
+           
+           
       </div>
 
 
@@ -100,6 +115,10 @@ $users= $read->fetchAll(PDO::FETCH_ASSOC);
 
 
 
+<script>function back(){
+        location.replace("../Pages/list.php");
+    }
+    </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script>

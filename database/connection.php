@@ -1,7 +1,7 @@
 <?php
 
 $host= "localhost";
-$dbname= "cbass";
+$dbname= "cba";
 $username = "root";
 $pass ="";
 $db= null;

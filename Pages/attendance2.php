@@ -21,7 +21,8 @@ session_start();
 $username=$_SESSION['username'];
 $password=$_SESSION["pass"];
 
-$xx=$_SESSION["xx"];
+$xx=$_POST['xx'];
+
 
 $read = $db->prepare("SELECT *
 FROM user AS aa

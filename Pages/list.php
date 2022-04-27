@@ -46,7 +46,7 @@ $users= $read->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <div class=' bgg'>
-        <div class= 'menu d-flex justify-content-between p-3'>
+        <div class= 'menu d-flex justify-content-between'>
  
 
 
@@ -74,23 +74,34 @@ $users= $read->fetchAll(PDO::FETCH_ASSOC);
 
 
            <div class=' d-flex p-5 border-0 m-2 rounded box1 flex-column'>
-<div class=''>
+
+
+
+             
+             <h2 class="text-center ">department <?php echo $_SESSION["dep"]; ?> ~ <?php echo $_SESSION["role"]; ?>s</h2> <br><br>
+            
+             <div class=''>
            <form action="search_User.php" method="post"  class=''>
 		        <input
 			type="text"
-			placeholder="Enter your search"
+			placeholder="Search by Name"
 			name="search"
-            class=' bgg px-5  mt-3 py-2 font-ss  rounded-pil  rounded'
+            class=' gray-text px-5  mt-3 py-2 font-ss  rounded-pil  rounded'
             required>
 		       <button type="submit" name="submit" class='back yel-col  font-ss  rounded-pil'><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
   <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
 </svg></button>
 	</form></div>
-
-
              
-             <h2 class="text-center ">department <?php echo $_SESSION["dep"]; ?> ~ <?php echo $_SESSION["role"]; ?>s</h2> <br><br>
-   
+             <button class='back pb-3 mx-3' onclick="add()"> 
+             <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi back-i bi-person-plus-fill" viewBox="0 0 16 16">
+  <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+  <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
+</svg>
+                   </button>
+
+
+
         <div class=" mb-5 ">
             <form  method="post">
                 <table class='table'>
@@ -113,12 +124,16 @@ $users= $read->fetchAll(PDO::FETCH_ASSOC);
                             <td><?php echo $user['Address']; ?></td>
                             <td><?php echo $user['DOB']; ?></td>
                             <td><?php echo $user['Blood_Group']; ?></td>
-                            <td><?php    $xx=$user['Card_ID']; ?><button type="submit" class='show' name='xx' value='<?php  $user['Card_ID']; ?>'>  
+                            <td>
+                              <form action="./attendance2.php" method="post">
+                            <button type="submit" class='show' name='xx' value='<?php  $user['Card_ID']; ?>'>  
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
                                              <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
                                              <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
-                                        </svg> show
-                             </button></td>
+                                        </svg> Show
+                             </button></form>
+                            
+                            </td>
                       
                      </tr>  
           <?php       }?>
@@ -143,9 +158,14 @@ $users= $read->fetchAll(PDO::FETCH_ASSOC);
 </div>
 
 
-<script>function back(){
+<script>
+      function back(){
         location.replace("./categories.php");
     }
+    function add(){
+        location.replace("../CRAD_opreation/add_Attendance.php");
+    }
+
     </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
@@ -162,21 +182,3 @@ $users= $read->fetchAll(PDO::FETCH_ASSOC);
 
 
 
-if(array_key_exists('xx', $_POST)) {
-  $cardID=$user['Card_ID']; 
-$_SESSION["xx"]=$cardID; 
-goo();
-    }
-   
-    
-
-    function goo(){
-        ?>
-        <script> location.replace("./attendance2.php"); </script>
-        
-        <?php
-         
-          
-      }
-
-?>

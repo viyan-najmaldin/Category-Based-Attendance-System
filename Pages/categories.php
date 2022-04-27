@@ -29,7 +29,7 @@ $departmet=$_SESSION["dep"];
    
 <div class=' bgg'>
 
-<div class= 'menu d-flex justify-content-between p-3'>
+<div class= 'menu d-flex justify-content-between'>
  
 
  <div class ='mx-4 mt-3'>
