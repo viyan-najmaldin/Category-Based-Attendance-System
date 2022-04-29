@@ -96,17 +96,16 @@
             <p>A <span class=''>Project</span> will be Submitted to the Department</p>
             <p>In the Partial Fulfillment of the Requirement for the Dgree of </p>
             <p>Bachelor of Science-BSc- in <span class=''>Software and Informatics Engineering</span></p>
-            <p class='py-3'>iman zuher, viyan najmaddin, shara osman, sakar masod</p>
+            <p class='py-3'>Iman zuher, Viyan Najmaddin, Shara Osman, Sakar Masod</p>
             <div class="img">
               <img src="https://sites.google.com/a/su.edu.krd/sarwa-dashti/_/rsrc/1466493608102/home/SUE.GIF" alt="">
-
             </div>
-
           </div>
         </div>
       </div>
     </section>
   </main>
+  <br><br>
   <?php include 'templates/footer.php' ?>
 </body>
 

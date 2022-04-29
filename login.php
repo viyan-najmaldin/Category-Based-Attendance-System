@@ -38,7 +38,7 @@ $url='Pages/departments.php'
            <form action="" method="post"  class=' d-flex p-5 border-0 bg-white rounded box flex-column'>
                  <input name="name" class='input-bgg form-control p-4 m-2' id='inputUser' type="text" placeholder='USERNAME' required
                   autofocus>
-                 <input name="id" class=' input-bgg  form-control p-4 m-2' id='inputPassword' type="text" placeholder='CARD NUMBER' required
+                 <input name="id" class=' input-bgg  form-control p-4 m-2' id='inputPassword' type="password" placeholder='CARD NUMBER' required
                   autofocus>
 
                   <!-- <select class="select-role" aria-label="Default select example">
@@ -54,7 +54,7 @@ $url='Pages/departments.php'
 
                  <div class='d-flex justify-content-center'>
                      
-                 <button  class="cancel-btn btn my-5 m-3  p-2 px-3 rounded-pill"><a class="cancel-link" href="/CBAS_a">Cancel</a> </button>
+                 <button  class="cancel-btn btn my-5 m-3  p-2 px-3 rounded-pill"><a class="cancel-link" href="/CBAS">Cancel</a> </button>
                  <button id='btn' name='submit' type="submit" onClick='loginn()' id="signinBtn" class="signinBtn bgy btn m-5 my-5  p-2 px-4 rounded-pill">Login</button>
                   
       </div>

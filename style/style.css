@@ -57,6 +57,11 @@
   margin: 5% 30% !important;
   border-radius: 5% !important;
 }
+.box2 {
+  background-color: #D2E8E3 !important;
+  margin: 0% 10% !important;
+  border-radius: 3% !important;
+}
 
 .form-control {
   border-radius: 0% !important;

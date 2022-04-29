@@ -49,7 +49,7 @@ $users= $read->fetchAll(PDO::FETCH_ASSOC);
  </div>
 
    <form action="../index.php">
-        <button type="submit" class="bgy btn px-5 mx-4 mt-3 py-2 font-ss  rounded-pill">Log Out</button>
+        <button type="submit" class="bgy btn px-5 mx-5 mt-3 py-2 font-ss  rounded-pill">Log Out</button>
     </form>
 
 </div>

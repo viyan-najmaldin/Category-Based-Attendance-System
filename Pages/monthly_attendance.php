@@ -82,37 +82,7 @@ $users= $read->fetchAll(PDO::FETCH_ASSOC);
                         <div class="col"><span class='bold-text'>Role :</span><?php echo $user['Role_Name'];  ?></div>
                         <div class="col"><span class='bold-text'>Blood Group :</span> <?php echo $user['Blood_Group']; }  ?></div>
                   </div>
-  
-                  <div class="row px-2 pt-2 font-ss">
-                  <div class='col'>
-                    <span class='font-ss bold-text'>Total days of attendance : </span> 
-           
-                       <span class='font-ss'>
-           <?php 
-          
- $read2 = $db->prepare("SELECT COUNT(*)
-FROM attendance AS bb
-JOIN user AS aa ON bb.Card_ID = aa.Card_ID 
- WHERE aa.Full_Name = '$username' 
- GROUP BY aa.Card_ID");
- $read2->execute();
-
- $users2= $read2->fetchAll(PDO::FETCH_ASSOC);
-  
- foreach($users2 as $uss  ){
-
-   echo($uss['COUNT(*)']);  }
-            
-            ?>
-</span>
-           </div>
-
-
-                   
-                  </div>
-
-
-                  
+         
                   
 
            </div>
@@ -144,8 +114,8 @@ JOIN user AS aa ON bb.Card_ID = aa.Card_ID
                
                  <tr class='t-shape'>
                     <th scope="col">Mounth</th>
-                    <th scope="col">Total Days Attendance</th>
-                    <th scope="col">Total Days Apsent</th>
+                    <th scope="col">Total Attendances</th>
+                    <th scope="col">Total Absences</th>
                     
                     
 
@@ -182,7 +152,7 @@ foreach($users1 as $us  ){
                
                     <td scope="col"><?php echo $us['timee']; ?></td>
                     <td scope="col"><?php echo $us['COUNT(Time)']; ?></td>
-                    <td scope="col"><?php echo (abs((cal_days_in_month(CAL_GREGORIAN,$us['MONTH(Time)'],$us['YEAR(Time)'])-$us['COUNT(Time)']))); ?></td>
+                    <td scope="col"><?php echo (abs(((cal_days_in_month(CAL_GREGORIAN,$us['MONTH(Time)'],$us['YEAR(Time)'])-8)-$us['COUNT(Time)']))); ?></td>
                     
                     
                      </td>

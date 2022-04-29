@@ -1,5 +1,5 @@
 
-<br><br>
+<br><br><br>
 <footer id="footer" class="section footer">
     <div class="container">
         <div class="footer__top">
@@ -42,7 +42,7 @@
     </div>
     </div>
 
-    <br><br><br><br>
+    <br><br><br><br><br><br>
 </footer>
 
 <!-- Glide Carousel Script -->
