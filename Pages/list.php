@@ -80,25 +80,41 @@ $users= $read->fetchAll(PDO::FETCH_ASSOC);
              
              <h2 class="text-center ">department <?php echo $_SESSION["dep"]; ?> ~ <?php echo $_SESSION["role"]; ?>s</h2> <br><br>
             
-             <div class=''>
-           <form action="search_User.php" method="post"  class=''>
-		        <input
-			type="text"
-			placeholder="Search by Name"
-			name="search"
-            class=' gray-text px-5  mt-3 py-2 font-ss  rounded-pil  rounded'
-            required>
-		       <button type="submit" name="submit" class='back yel-col  font-ss  rounded-pil'><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-</svg></button>
-	</form></div>
-             
-             <button class='back pb-3 mx-3' onclick="add()"> 
-             <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi back-i bi-person-plus-fill" viewBox="0 0 16 16">
+           
+           
+             <div class='d-flex justify-content-between pb-4'>
+
+    <div class="mr-5">
+        <form action="search_User.php" method="post"  class=''>
+		              <input type="text"	placeholder="Search by Name"	name="search" class='searchh white-text px-5  mb-3 py-2 font-ss  rounded-pil  rounded'  required>
+                  <button type="submit" name="submit" class='back xnay  font-ss  rounded-pil'><svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi mt-2 bi-search" viewBox="0 0 16 16">
+                       <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                         </svg>
+                  </button>
+	        </form>
+      </div>
+      
+
+      
+
+
+             <div class="ml-5">
+
+             <button class='back  mr-3' onclick="add()"> 
+             <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi xnay mt-2 bi-person-plus-fill" viewBox="0 0 16 16">
   <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
   <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
-</svg>
-                   </button>
+             </svg>
+        </button>
+
+             </div>
+          
+             
+
+    
+</div>
+             
+            
 
 
 

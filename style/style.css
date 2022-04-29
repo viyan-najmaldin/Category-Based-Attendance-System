@@ -19,7 +19,19 @@
 }
 
 .searchh{
-  margin-left: 50% !important;
+  
+  border: none !important;
+  border: 2px solid #0F6466 !important;
+  background-color: #D2E8E3; 
+}
+
+.date{
+  border: none !important;
+}
+
+
+.xnay {
+  color: #d37522;
 }
 
 .bold-text{
@@ -158,6 +170,8 @@ td button :hover{
   font-size: larger !important;
 }
 
+
+
 .back-i{
   color: #0F6466;
 }
@@ -170,4 +184,8 @@ td button :hover{
   display: grid;
   align-self: end !important;
 
+}
+
+.wee{
+  display: grid;
 }

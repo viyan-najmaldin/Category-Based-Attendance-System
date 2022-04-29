@@ -82,66 +82,11 @@ $users= $read->fetchAll(PDO::FETCH_ASSOC);
                         <div class="col"><span class='bold-text'>Role :</span><?php echo $user['Role_Name'];  ?></div>
                         <div class="col"><span class='bold-text'>Blood Group :</span> <?php echo $user['Blood_Group']; }  ?></div>
                   </div>
-  
-                  <div class="row px-2 pt-2 font-ss">
-                  <div class='col'>
-                    <span class='font-ss bold-text'>Total days of attendance : </span> 
-           
-                       <span class='font-ss'>
-           <?php 
-          
- $read2 = $db->prepare("SELECT COUNT(*)
-FROM attendance AS bb
-JOIN user AS aa ON bb.Card_ID = aa.Card_ID 
- WHERE aa.Full_Name = '$username' 
- GROUP BY aa.Card_ID");
- $read2->execute();
-
- $users2= $read2->fetchAll(PDO::FETCH_ASSOC);
-  
- foreach($users2 as $uss  ){
-
-   echo($uss['COUNT(*)']);  }
-            
-            ?>
-</span>
-           </div>
-
-
-                    <div class="col">
-                      <?php
-                        $d=cal_days_in_month(CAL_GREGORIAN,4,2022);
-                              echo "There was $d days in 3 1965.<br>";    ?>
-                    </div>
-                  </div>
-
-
-                  
-                  
 
            </div>
 <br>
 
-<div class='d-flex justify-content-between px-2 pb-4 '>
 
-
-        <div class='mt-3'>
-            <form action="../Pages/monthly_attendance.php" method="post">
-              <button class='py-2 px-4 bgg text-white ' type="submit">Monthly Attendance</button>
-            </form>
-        </div>
-
-
-<div class="mr-5 ">
-    <form action="search_date.php" method="post"  class='px-3 pt-2'>
-            
-           From   <input type="date"	placeholder="From"	name="start" class='date gray-text px-5 py-1  mb-3  font-ss  rounded-pil  rounded'  required>
-             To <input type="date"	placeholder="To"	name="end" class='date gray-text px-5  mb-3 py-1  font-ss  rounded-pil  rounded'  required>
-             <button type="submit" class='back xnay'>Search </button>
-      </form>
-  </div>
-        
-</div>
 
 
            <table class="table">
@@ -161,14 +106,16 @@ JOIN user AS aa ON bb.Card_ID = aa.Card_ID
                
 
                <?php    
-
+$start = date('Y-m-d', strtotime($_POST["start"]));
+$end = date('Y-m-d', strtotime($_POST["end"]));
                
 $read1 = $db->prepare("SELECT *
 FROM user AS aa
-JOIN attendance AS bb ON bb.Card_ID = aa.Card_ID 
+JOIN attendance AS bb ON bb.Card_ID = aa.Card_ID
+JOIN roles AS cc ON cc.Role_ID = aa.Role_ID 
 JOIN leaves AS dd ON dd.Leave_ID = bb.Leave_ID 
-WHERE aa.Full_Name = '$username'  
-GROUP BY dd.Leave_ID");
+WHERE aa.Full_Name = '$username' && aa.Card_ID= '$password'  && bb.Time between '$start' and '$end'
+");
 $read1->execute();
 
 $users1= $read1->fetchAll(PDO::FETCH_ASSOC);
@@ -225,9 +172,35 @@ foreach($users1 as $us  ){
 
            </table>
            <hr>   
-      
+           <div ><span class='font-ss bold-text'>No of days : </span> 
+           
+           <span class='font-ss'>
+           <?php 
+          
+ $read2 = $db->prepare("SELECT COUNT(*)
+FROM user AS aa
+JOIN attendance AS bb ON bb.Card_ID = aa.Card_ID
+JOIN roles AS cc ON cc.Role_ID = aa.Role_ID 
+JOIN leaves AS dd ON dd.Leave_ID = bb.Leave_ID 
+WHERE aa.Full_Name = '$username' && aa.Card_ID= '$password'  && bb.Time between '$start' and '$end'
+GROUP BY aa.Card_ID");
+ $read2->execute();
 
-      
+ $users2= $read2->fetchAll(PDO::FETCH_ASSOC);
+  
+ foreach($users2 as $uss  ){
+
+   echo($uss['COUNT(*)']);  }
+            
+            ?>
+</span>
+           </div>
+
+      <button class='back' onclick="back()"> 
+                      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi back-i bi-arrow-left-circle" viewBox="0 0 16 16">
+                              <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
+                      </svg>
+                   </button>
           </div>
   
            <br><br>
@@ -235,13 +208,17 @@ foreach($users1 as $us  ){
   
       </div>
 
-
+      
 
 
 
 </div>
 
 
+<script>function back(){
+        location.replace("./attendance.php");
+    }
+    </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
    <script src="../js/login.js"></script> 
