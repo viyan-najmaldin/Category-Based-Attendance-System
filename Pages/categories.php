@@ -41,7 +41,7 @@ $departmet=$_SESSION["dep"];
      </span>
  </div>
 
-   <form action="../index.php" method="post">
+   <form action="../logout.php" method="post">
         <button type="submit" class="bgy btn px-5 mx-4 mt-3 py-2 font-ss  rounded-pill">Log Out</button>
     </form>
 
@@ -60,9 +60,9 @@ $departmet=$_SESSION["dep"];
       
               <div class="row mb-4">
         
-                <button type="submit" class="col dep bgg light-text btn px-5 mx-4 mt-3 py-3 font-ss  rounded-pill"  name='role' value='student' >STUDENTS </button>
-                <button type="submit"class="col dep  bgg light-text btn px-5 mx-4 mt-3 py-3 font-ss  rounded-pill" name='role' value='teacher'>TEACHERS </button>
-                <button type="submit"class="col dep  bgg light-text btn px-5 mx-4 mt-3 py-3 font-ss  rounded-pill" name='role' value='employee'>STAFF </button>    
+                <button type="submit" class="col dep bgg light-text btn px-5 mx-4 mt-3 py-3 font-ss  rounded-pill"  name='role' value='Student' >STUDENTS </button>
+                <button type="submit"class="col dep  bgg light-text btn px-5 mx-4 mt-3 py-3 font-ss  rounded-pill" name='role' value='Teacher'>TEACHERS </button>
+                <button type="submit"class="col dep  bgg light-text btn px-5 mx-4 mt-3 py-3 font-ss  rounded-pill" name='role' value='Employee'>STAFF </button>    
               </div>
 
        </form>

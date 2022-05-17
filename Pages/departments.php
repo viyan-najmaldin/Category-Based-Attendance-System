@@ -48,7 +48,7 @@ $users= $read->fetchAll(PDO::FETCH_ASSOC);
      </span>
  </div>
 
-   <form action="../index.php">
+ <form action="../logout.php" >
         <button type="submit" class="bgy btn px-5 mx-5 mt-3 py-2 font-ss  rounded-pill">Log Out</button>
     </form>
 
@@ -67,22 +67,22 @@ $users= $read->fetchAll(PDO::FETCH_ASSOC);
       
       <div class="row mb-4">
       
-                <button type="submit" class="col dep bgg light-text btn px-5 mx-4 mt-3 py-3 font-ss  rounded-pill" name="dep"  value='software' >SOFTWARE </button>
-                <button type="submit"class="col dep  bgg light-text btn px-5 mx-4 mt-3 py-3 font-ss  rounded-pill" name='dep' value='architecture'>ARCHITECTURE </button>
-                <button type="submit"class="col dep  bgg light-text btn px-5 mx-4 mt-3 py-3 font-ss  rounded-pill" name='dep' value='civil'>CIVIL </button>    
+                <button type="submit" class="col dep bgg light-text btn px-5 mx-4 mt-3 py-3 font-ss  rounded-pill" name="dep"  value='Software' >SOFTWARE </button>
+                <button type="submit"class="col dep  bgg light-text btn px-5 mx-4 mt-3 py-3 font-ss  rounded-pill" name='dep' value='Architecture'>ARCHITECTURE </button>
+                <button type="submit"class="col dep  bgg light-text btn px-5 mx-4 mt-3 py-3 font-ss  rounded-pill" name='dep' value='Civil'>CIVIL </button>    
         </div>
 
          <div class="row mb-4">
 
-              <button type="submit" class="col dep bgg light-text btn px-5 mx-4 mt-3 py-3 font-ss  rounded-pill" name='dep'  value='electrical' >ELECTRICAL </button>
-                <button type="submit"class="col dep  bgg light-text btn px-5 mx-4 mt-3 py-3 font-ss  rounded-pill"name='dep'  value='dams&water'>DAM & WATER </button>
-                <button type="submit"class="col dep  bgg light-text btn px-5 mx-4 mt-3 py-3 font-ss  rounded-pill"name='dep'  value='mechanics'>MECHANICS</button>
+              <button type="submit" class="col dep bgg light-text btn px-5 mx-4 mt-3 py-3 font-ss  rounded-pill" name='dep'  value='Electrical' >ELECTRICAL </button>
+                <button type="submit"class="col dep  bgg light-text btn px-5 mx-4 mt-3 py-3 font-ss  rounded-pill"name='dep'  value='Aams&water'>DAM & WATER </button>
+                <button type="submit"class="col dep  bgg light-text btn px-5 mx-4 mt-3 py-3 font-ss  rounded-pill"name='dep'  value='Mechanics'>MECHANICS</button>
 
               </div>
               <div class="row mb-4">
 
-              <button type="submit" class="col dep bgg light-text btn px-5 mx-4 mt-3 py-3 font-ss  rounded-pill"name='dep'  value='geomatics'>GEOMATICS</button>
-                <button type="submit"class="col dep  bgg light-text btn px-5 mx-4 mt-3 py-3 font-ss  rounded-pill"name='dep'   value='petrochemica'>PETROCHEMICAL</button>
+              <button type="submit" class="col dep bgg light-text btn px-5 mx-4 mt-3 py-3 font-ss  rounded-pill"name='dep'  value='Geomatics'>GEOMATICS</button>
+                <button type="submit"class="col dep  bgg light-text btn px-5 mx-4 mt-3 py-3 font-ss  rounded-pill"name='dep'   value='Petrochemica'>PETROCHEMICAL</button>
                 <button type="submit"class="col dep  bgg light-text btn px-5 mx-4 mt-3 py-3 font-ss  rounded-pill" >OTHERS </button>
 
               </div>

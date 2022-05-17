@@ -58,7 +58,7 @@ $users= $read->fetchAll(PDO::FETCH_ASSOC);
      </span>
  </div>
 
-   <form action="./index.php">
+   <form action="./logout.php">
         <button type="submit" class="bgy btn px-5 mx-4 mt-3 py-2 font-ss  rounded-pill">Log Out</button>
     </form>
 
@@ -99,7 +99,7 @@ $users= $read->fetchAll(PDO::FETCH_ASSOC);
 
 
 <div class="mr-5 ">
-    <form action="search_date.php" method="post"  class='px-3 pt-2'>
+    <form action="search_date2.php?cardd=<?php echo $user['Card_ID']; ?>" method="post"  class='px-3 pt-2'>
             
            From   <input type="date"	placeholder="From"	name="start" class='date gray-text px-5 py-1  mb-3  font-ss  rounded-pil  rounded'  required>
              To <input type="date"	placeholder="To"	name="end" class='date gray-text px-5  mb-3 py-1  font-ss  rounded-pil  rounded'  required>

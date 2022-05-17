@@ -14,23 +14,6 @@
 session_start();
 
 require_once '../database/connection.php';
-$username= $_SESSION["username"];
-$password= $_SESSION["pass"];
-
-$read = $db->prepare("SELECT *
-FROM user AS aa
-JOIN attendance AS bb ON bb.Card_ID = aa.Card_ID
-JOIN roles AS cc ON cc.Role_ID = aa.Role_ID 
-WHERE aa.Full_Name = '$username' && aa.Card_ID= '$password'
-GROUP BY aa.Card_ID");
-$read->execute();
-
-$users= $read->fetchAll(PDO::FETCH_ASSOC);
-  
-
- foreach($users as $user  ){
-    // setcookie("username", $username, time()+5);
-    
 
 ?>
 
@@ -44,11 +27,11 @@ $users= $read->fetchAll(PDO::FETCH_ASSOC);
     
     <span class='d-inline p-2'>
             <h3 class='d-inline p-2 yel-col font-ss' >Category Based Attendance System</h3>
-            <div style='margin-left:22%; margin-top:-3%;' class='yel-col  font-ss'><?php echo $user['Full_Name'];} ?></div>
+            <div style='margin-left:22%; margin-top:-3%;' class='yel-col  font-ss'><?php echo $_SESSION['username'];?></div>
      </span>
  </div>
 
-   <form action="../index.php">
+ <form action="../logout.php" >
         <button type="submit" class="bgy btn px-5 mx-4 mt-3 py-2 font-ss rounded-pill ">Log Out</button>
     </form>
 
@@ -62,21 +45,20 @@ $users= $read->fetchAll(PDO::FETCH_ASSOC);
               
     
               <div class="text-center mb-5 ">
-             
-      <form method="post" class='mx-5'>
+      <form method="post" action="./insert.php"  class='mx-5'>
                        
          <div class="row">  
-         <input name="card" class=' input-bgg form-control p-4 m-2' id='inputUser' type="text" placeholder='CARD NUMBER' required
+         <input name="Card_ID" class=' input-bgg form-control p-4 m-2' id='inputUser' type="text" placeholder='CARD NUMBER' required
                   autofocus>           
          </div>
 
          <div class="row">
-                <input name="fullname" class=' input-bgg form-control p-4 m-2' id='inputUser' type="text" placeholder='FULL NAME' required
+                <input name="FullName" class=' input-bgg form-control p-4 m-2' id='inputUser' type="text" placeholder='FULL NAME' required
                   autofocus>
          </div>
 
          <div class="row">
-         <input name="bgroup" class='  input-bgg form-control p-4 m-2' id='inputUser' type="text" placeholder='BLOOD GROUP' required
+         <input name="BloodGroup" class='  input-bgg form-control p-4 m-2' id='inputUser' type="text" placeholder='BLOOD GROUP' required
                   autofocus>
          </div>
                   <div class="row">       
@@ -85,12 +67,12 @@ $users= $read->fetchAll(PDO::FETCH_ASSOC);
          </div>
 
                 <div class="row mb-4">
-             <input name="DOBB" type='date' class=' input-bgg form-control p-4 m-2 ' id='inputUser' type="text" placeholder='DATE OF BIRTHDAY' required
+             <input name="DOB" type='date' class=' input-bgg form-control p-4 m-2 ' id='inputUser' type="text" placeholder='DATE OF BIRTHDAY' required
             autofocus>
         </div>
 
              <div class="row d-flex justify-content-end">
-             <button onclick="cancel()" type="submit" class='btn ml-3 px-3 p-2 text-danger rounded-pill'><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+             <button onclick="cancel()" class='btn ml-3 px-3 p-2 text-danger rounded-pill'><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
   <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
   <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
 </svg> Cancel</button> 
@@ -117,6 +99,66 @@ $users= $read->fetchAll(PDO::FETCH_ASSOC);
 
 
 </div>
+
+<?php 
+
+switch($_SESSION['dep']){
+   
+    case('Software'):
+      $_SESSION['deppp']='soft442158';
+      break;
+    case('Petrochemica'):
+      $_SESSION['deppp']='petr551426';
+      break;
+      
+    case('Mechanics'):
+      $_SESSION['deppp']='mech851245';
+      break;
+
+    case('Aams&water'):
+      $_SESSION['deppp']='dams012456';
+      break;
+
+    case('Architecture'):
+      $_SESSION['deppp']='arch125489';
+      break;
+
+    case('Geomatics'):
+      $_SESSION['deppp']='geom123541';
+      break;
+    
+    case('Civil'):
+      $_SESSION['deppp']='civi334523';
+      break;
+
+    case('Electrical'):
+      $_SESSION['deppp']='elec102548';
+      break;
+
+
+}
+
+
+switch($_SESSION['role']){
+
+    case('Employee'):
+      
+      $_SESSION['rolee']='4';
+      break;
+
+    case('Teacher'):
+  $_SESSION['rolee']='3';
+      break;
+
+    case('Student'):
+      $_SESSION['rolee']='1';
+       break;
+
+
+}
+
+
+?>
 
 
 
@@ -149,5 +191,7 @@ $_SESSION["dep"]=$department;
           function goo(){
             header("location: ./categories.php");
           }
+
+
 
     ?>

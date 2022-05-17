@@ -60,7 +60,7 @@ $users= $read->fetchAll(PDO::FETCH_ASSOC);
      </span>
  </div>
 
-   <form action="./index.php">
+   <form action="./logout.php">
         <button type="submit" class="bgy btn px-5 mx-4 mt-3 py-2 font-ss  rounded-pill">Log Out</button>
     </form>
 
@@ -135,7 +135,6 @@ FROM user AS aa
 JOIN attendance AS bb ON bb.Card_ID = aa.Card_ID 
 JOIN leaves AS dd ON dd.Leave_ID = bb.Leave_ID 
 WHERE aa.Card_ID = '$xx'  
-GROUP BY dd.Leave_ID
 ORDER BY bb.Time ASC");
 $read1->execute();
 
@@ -163,12 +162,12 @@ foreach($users1 as $us  ){
                     $diffInMinutes = $interval->s;
                     $diffInHours   = $interval->h;
                     
-                    if ( $t1 <= new DateTime("15:00:00")) {
+                    if ( $t1 <= new DateTime("15:00:00")) 
                     
                         $no_of_hours = print( $diffInHours .' hours');
-                    } else {
+                     else 
                       echo  $no_of_hours = 0;
-                    }
+                    
 
          
 // ?>  

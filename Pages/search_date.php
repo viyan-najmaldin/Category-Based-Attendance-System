@@ -32,14 +32,7 @@ $read->execute();
 
 $users= $read->fetchAll(PDO::FETCH_ASSOC);
   
-
  foreach($users as $user  ){
-
-
-
-
-
-
 
 ?>
 
@@ -57,7 +50,7 @@ $users= $read->fetchAll(PDO::FETCH_ASSOC);
      </span>
  </div>
 
-   <form action="../index.php">
+   <form action="../logout.php">
         <button type="submit" class="bgy btn px-5 mx-4 mt-3 py-2 font-ss  rounded-pill">Log Out</button>
     </form>
 
