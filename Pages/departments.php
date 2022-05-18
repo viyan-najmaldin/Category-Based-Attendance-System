@@ -62,7 +62,7 @@ $users= $read->fetchAll(PDO::FETCH_ASSOC);
     
               <div class="text-center mb-5 ">
              
-      <form method="post">
+      <form method="post" >
                        
       
       <div class="row mb-4">
@@ -124,12 +124,13 @@ $users= $read->fetchAll(PDO::FETCH_ASSOC);
          if(array_key_exists('dep', $_POST)) {
           $department= $_POST['dep'];
 $_SESSION["dep"]=$department; 
-    goo();
+    go();
           }
-
-
-          function goo(){
-            header("location: ./categories.php");
+ 
+          function go(){
+            ?>
+            <script>location.replace("./categories.php");  </script>
+            <?php 
           }
 
     ?>

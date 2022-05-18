@@ -189,7 +189,7 @@ foreach($users1 as $us  ){
 
            </table>
            <hr>   
-      
+          
            <div class='back'>
            <a class='bgy btn px-5 mx-4 mt-3 py-2 font-ss  rounded-pill' href="./departments.php">All Departments</a>
            </div>

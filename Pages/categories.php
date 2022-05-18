@@ -116,7 +116,9 @@ $departmet=$_SESSION["dep"];
 
 
           function goo(){
-            header("location: ./list.php");
+            ?>
+            <script>location.replace("./list.php");  </script>
+            <?php 
           }
 
 ?>
