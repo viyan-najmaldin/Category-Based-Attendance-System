@@ -81,7 +81,8 @@ $users= $read->fetchAll(PDO::FETCH_ASSOC);
                         <div class="col"><span class='bold-text'>Card ID :</span> <?php echo $user['Card_ID']; ?></div>
                         <div class="col"><span class='bold-text'>Role :</span><?php echo $user['Role_Name'];  ?></div>
                         <div class="col"><span class='bold-text'>Blood Group :</span> <?php echo $user['Blood_Group']; }  ?></div>
-                  </div>        
+                  </div>
+         
                   
 
            </div>
@@ -90,9 +91,9 @@ $users= $read->fetchAll(PDO::FETCH_ASSOC);
 <div class='d-flex justify-content-between px-2 pb-4 '>
 
 
-        <div class='mt-3'>
-            <form action="../Pages/admin_page_monthly.php" method="post">
-              <button class='py-2 px-4 bgg text-white ' type="submit">Monthly Attendance</button>
+        <div class='mt-3 '>
+            <form action="../Pages/admin_page.php" method="post">
+              <button class='py-2 px-4 bgg text-white ' type="submit">Daily Attendance</button>
             </form>
         </div>
 
@@ -112,10 +113,10 @@ $users= $read->fetchAll(PDO::FETCH_ASSOC);
            <table class="table">
                
                  <tr class='t-shape'>
-                    <th scope="col">Date</th>
-                    <th scope="col">Time In</th>
-                    <th scope="col">Time Out</th>
-                    <th scope="col">No hours</th>
+                    <th scope="col">Mounth</th>
+                    <th scope="col">Total Attendances</th>
+                    <th scope="col">Total Absences</th>
+                    
                     
 
                     
@@ -128,48 +129,31 @@ $users= $read->fetchAll(PDO::FETCH_ASSOC);
                <?php    
 
                
-$read1 = $db->prepare("SELECT *
+$read1 = $db->prepare("SELECT DISTINCT CONCAT(YEAR(Time),'-' ,MONTH(Time)) As timee, COUNT(Time),Time,MONTH(Time),YEAR(Time) 
 FROM user AS aa
-JOIN attendance AS bb ON bb.Card_ID = aa.Card_ID 
-JOIN leaves AS dd ON dd.Leave_ID = bb.Leave_ID 
-WHERE aa.Full_Name = '$username'  
-ORDER BY bb.Time ASC");
+ JOIN attendance AS bb ON bb.Card_ID = aa.Card_ID 
+ WHERE aa.Full_Name = '$username' 
+ GROUP BY MONTH(Time)
+");
 $read1->execute();
 
 $users1= $read1->fetchAll(PDO::FETCH_ASSOC);
   
 foreach($users1 as $us  ){
 
-                ?>    
+
+  
+       ?>     
+ <div class="col">
+                      
+   
              
                 <tr class='data-row'>
                
-                    <td scope="col"><?php echo $us['Time']; ?></td>
-                    <td scope="col"><?php echo $us['Time_In']; ?></td>
-                    <td scope="col"><?php echo $us['Time_Out']; ?></td>
-                    <td scope="col"><?php 
+                    <td scope="col"><?php echo $us['timee']; ?></td>
+                    <td scope="col"><?php echo $us['COUNT(Time)']; ?></td>
+                    <td scope="col"><?php echo (abs(((cal_days_in_month(CAL_GREGORIAN,$us['MONTH(Time)'],$us['YEAR(Time)'])-8)-$us['COUNT(Time)']))); ?></td>
                     
-                    $t1 =new DateTime($us['Time_In']);
-
-                    $t2 = new DateTime($us['Time_Out']);
-                    
-                    $no_of_hours;
-                    
-                    $interval = $t1->diff($t2);
-                    $diffInSeconds = $interval->s;
-                    $diffInMinutes = $interval->s;
-                    $diffInHours   = $interval->h;
-                    
-                    if ( $t1 <= new DateTime("15:00:00")) {
-                    
-                        $no_of_hours = print( $diffInHours .' hours');
-                    } else {
-                      echo  $no_of_hours = 0;
-                    }
-
-         
-// ?>  
-                     
                     
                      </td>
 
@@ -185,15 +169,16 @@ foreach($users1 as $us  ){
 
 
 
+
                
 
            </table>
            <hr>   
-      
            <div class='back'>
            <a class='bgy btn px-5 mx-4 mt-3 py-2 font-ss  rounded-pill' href="./departments.php">All Departments</a>
            </div>
               
+
       
           </div>
   
