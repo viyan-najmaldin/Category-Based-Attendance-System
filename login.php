@@ -96,7 +96,7 @@ include('Pages/footer.php') ?>
           function checkUser(){
          
          if(substr($_SESSION["pass"],0,3) =='adm') { ?>
-                  <script>location.replace("./Pages/departments.php");  </script>
+                  <script>location.replace("./Pages/admin_page.php");  </script>
          <?php 
        }   else { ?>
           <script>location.replace("./Pages/attendance.php");  </script>
