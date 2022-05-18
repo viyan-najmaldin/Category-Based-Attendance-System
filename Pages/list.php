@@ -78,7 +78,7 @@ $users= $read->fetchAll(PDO::FETCH_ASSOC);
 
 
              
-             <h2 class="text-center ">department <?php echo $_SESSION["dep"]; ?> ~ <?php echo $_SESSION["role"]; ?>s</h2> <br><br>
+             <h2 class="text-center ">Department <?php echo $_SESSION["dep"]; ?> ~ <?php echo $_SESSION["role"]; ?>s</h2> <br><br>
             
            
            
