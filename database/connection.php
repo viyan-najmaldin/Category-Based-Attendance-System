@@ -1,9 +1,9 @@
 <?php
 
-$host= "localhost";
-$dbname= "cbass";
-$username = "root";
-$pass ="";
+$host= "sql5.freesqldatabase.com";
+$dbname= "sql5496188";
+$username = "sql5496188";
+$pass ="L5ztG5lldr";
 $db= null;
 
 try{
