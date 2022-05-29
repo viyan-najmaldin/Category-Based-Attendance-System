@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.1/css/bootstrap.min.css" integrity="sha512-T584yQ/tdRR5QwOpfvDfVQUidzfgc2339Lc8uBDtcp/wYu80d7jwBgAxbyMh0a9YM9F8N3tdErpFI8iaGx6x5g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./style/style.css" />
     <title>Login</title>
@@ -53,7 +54,7 @@ $url='Pages/departments.php'
 
                  <div class='d-flex justify-content-center'>
                      
-                 <button  class="cancel-btn btn my-5 m-3  p-2 px-3 rounded-pill"><a class="cancel-link" href="/CBAS">Cancel</a> </button>
+                 <button  class="cancel-btn btn my-5 m-3  p-2 px-3 rounded-pill"><a class="cancel-link" href="./index.php">Cancel</a> </button>
                  <button id='btn' name='submit' type="submit" onClick='loginn()' id="signinBtn" class="signinBtn bgy btn m-5 my-5  p-2 px-4 rounded-pill">Login</button>
                   
       </div>
