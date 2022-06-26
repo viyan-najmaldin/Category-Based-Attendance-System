@@ -1,11 +1,10 @@
 <?php
 
-$host= "sql5.freesqldatabase.com";
-$dbname= "sql5496188";
-$username = "sql5496188";
-$pass ="L5ztG5lldr";
+$host= "localhost";
+$dbname= "cbass";
+$username = "root";
+$pass ="";
 $db= null;
-
 
 try{
   $db= new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $pass,[
