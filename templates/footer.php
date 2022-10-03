@@ -27,7 +27,7 @@
                             <use xlink:href="./assets/sprite.svg#icon-phone"></use>
                         </svg>
                     </span>
-                    0751 181 3705
+                    0751 181 37 05
                 </div>
             </div>
         </div>
