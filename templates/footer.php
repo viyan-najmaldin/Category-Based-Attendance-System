@@ -19,7 +19,7 @@
                             <use xlink:href="./assets/sprite.svg#icon-envelop"></use>
                         </svg>
                     </span>
-                    example@gmail.com
+                    vnajmadin@gmail.com
                 </div>
                 <div>
                     <span>
@@ -27,7 +27,7 @@
                             <use xlink:href="./assets/sprite.svg#icon-phone"></use>
                         </svg>
                     </span>
-                    0750 000 00 00
+                    0751 181 3705
                 </div>
             </div>
         </div>
